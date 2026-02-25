@@ -1,18 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'app/app.dart';
 
-void main() => runApp(Space());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
 
-class Space extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'AstroScope',
-      theme: ThemeData(
-        primaryColor: Colors.black
-      ),
-
-      debugShowCheckedModeBanner: false,
-    );
-  }
+  runApp(const App());
 }
